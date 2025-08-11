@@ -23,8 +23,8 @@ def extract_info(url):
 def parse_html(html):
     full_data = []
     soup = BeautifulSoup(html,"html.parser")
-    name = soup.find_all("h3",class_="LC20lb MBeuO DKV0Md")
-    email = soup.find_all("div",class_="VwiC3b yXK7lf p4wth r025kc hJNv6b Hdw6tb")
+    name = soup.find_all("h3",class_="xyz")
+    email = soup.find_all("div",class_="xyz")
     for n,e in zip(name,email):
         full_name = n.text.strip()
         email = e.text.strip()
@@ -54,7 +54,7 @@ def save_to_csv(data, file_path="file1.csv"):
 
 
 def main():
-    urls = ['https://www.google.com/search?q=%22Jordan+%22+%22%40comcast.net%22+site%3Afamilytreenow.com&sca_esv=8011337b228d5ddd&biw=1737&bih=795&sxsrf=AE3TifMddHCtD5BI2Sv9c3zqGjsPbXO8qw%3A1754760971365&ei=C4eXaNKIFvPXi-gPyom2qAM&ved=0ahUKEwiSuvSCov6OAxXz6wIHHcqEDTUQ4dUDCBA&uact=5&oq=%22Jordan+%22+%22%40comcast.net%22+site%3Afamilytreenow.com&gs_lp=Egxnd3Mtd2l6LXNlcnAiLyJKb3JkYW4gIiAiQGNvbWNhc3QubmV0IiBzaXRlOmZhbWlseXRyZWVub3cuY29tSLEWUO0OWO0OcAJ4AJABAJgB-gGgAfoBqgEDMi0xuAEDyAEA-AEC-AEBmAIAoAIAmAMAiAYBkgcAoActsgcAuAcAwgcAyAcA&sclient=gws-wiz-serp' ]
+    urls = ["muntiple_Urls]
     for url in urls:
         time.sleep(random.uniform(4,7.7))
         while True:
@@ -64,7 +64,7 @@ def main():
             soup = BeautifulSoup(html,"html.parser")
             next_tag = soup.find("a", id="pnnext")
             if next_tag:
-                link = urljoin("https://www.google.com",next_tag.get("href"))
+                link = urljoin("base_url",next_tag.get("href"))
                 if link:
                     url = link
                 else:
